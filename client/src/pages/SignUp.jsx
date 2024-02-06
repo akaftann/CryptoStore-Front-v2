@@ -9,8 +9,8 @@ import Field from "../components/Field/Field";
 import Button from "../components/Button/Button";
 
 const defaultValues = {
-  userName: "",
-  password: "",
+  email: "",
+  pass: "",
   role: 1,
 };
 
@@ -30,7 +30,7 @@ const rolesList = [
 ];
 
 export default function SignUp() {
-  const { handleSignUp } = useContext(AuthContext);
+  const { handleSignUp, activationLink } = useContext(AuthContext);
 
   const {
     register,
@@ -44,32 +44,32 @@ export default function SignUp() {
 
   return (
     <form className={style.wrapper} onSubmit={handleSubmit(handleSignUp)}>
-      <h2>Создать аккаунт</h2>
+      <h2>Create account</h2>
       <Field
-        name="userName"
+        name="email"
         register={register}
         autoComplete="off"
-        placeholder="Имя пользователя"
-        error={Boolean(errors.userName)}
-        helperText={errors.userName?.message}
+        placeholder="User's email"
+        error={Boolean(errors.email)}
+        helperText={errors.email?.message}
       />
       <Field
-        name="password"
+        name="pass"
         register={register}
         autoComplete="off"
-        placeholder="Пароль"
-        error={Boolean(errors.password)}
-        helperText={errors.password?.message}
+        placeholder="Password"
+        error={Boolean(errors.pass)}
+        helperText={errors.pass?.message}
       />
-      <Controller
+      {/* <Controller
         control={control}
         name="role"
         render={({ field: { onChange, value } }) => (
           <Select onChange={onChange} value={value} options={rolesList} />
         )}
-      />
+      /> */}
       <Button disabled={isSubmitting} type="submit">
-        Зарегистрироваться
+        Sign Up
       </Button>
     </form>
   );

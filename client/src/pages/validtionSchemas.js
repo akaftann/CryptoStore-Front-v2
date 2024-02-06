@@ -1,26 +1,25 @@
 import * as Yup from "yup";
 
 export const signInSchema = Yup.object({
-  userName: Yup.string()
-    .required("Поле обязательно!")
-    .max(25, "Максимальная длина - 25 символов"),
-  password: Yup.string()
-    .required("Поле обязательно!")
-    .min(3, "Пароль слишком короткий - минимум 3 символа")
-    .max(50, "Максимальная длина - 50 символов"),
+  email: Yup.string()
+    .required("Email is a required field!")
+    .email("Invalid email address")
+    .max(50, "Maximum length is 50 characters"),
+  pass: Yup.string()
+    .required("Password is a required field!")
+    .min(7, "Password must be at least 7 characters")
+    .matches(/^(?=.*[A-Z])(?=.*[0-9])/, "Password must contain at least one uppercase letter and one digit")
+    .max(50, "Maximum length is 50 characters"),
 });
 
 export const signUpSchema = Yup.object({
-  userName: Yup.string()
-    .required("Поле обязательно!")
-    .max(25, "Максимальная длина - 25 символов"),
-  password: Yup.string()
-    .required("Поле обязательно!")
-    .min(3, "Пароль слишком короткий - минимум 3 символа")
-    .max(50, "Максимальная длина - 50 символов"),
-  role: Yup.number()
-    .required("Поле обязательно!")
-    .typeError("Значение должно быть числом!")
-    .min(1, "Минимальное значение - 1")
-    .max(3, "Максимальное значение - 3"),
+  email: Yup.string()
+    .required("Email is a required field!")
+    .email("Invalid email address")
+    .max(50, "Maximum length is 50 characters"),
+  pass: Yup.string()
+    .required("Password is a required field!")
+    .min(7, "Password must be at least 7 characters")
+    .matches(/^(?=.*[A-Z])(?=.*[0-9])/, "Password must contain at least one uppercase letter and one digit")
+    .max(50, "Maximum length is 50 characters"),
 });

@@ -8,8 +8,8 @@ import Field from "../components/Field/Field";
 import Button from "../components/Button/Button";
 
 const defaultValues = {
-  userName: "",
-  password: "",
+  email: "",
+  pass: "",
 };
 
 export default function SignIn() {
@@ -26,25 +26,25 @@ export default function SignIn() {
 
   return (
     <form onSubmit={handleSubmit(handleSignIn)} className={style.wrapper}>
-      <h2>Войти в аккаунт</h2>
+      <h2>Log in</h2>
       <Field
-        name="userName"
+        name="email"
         register={register}
         autoComplete="off"
-        placeholder="Имя пользователя"
-        error={Boolean(errors.userName)}
-        helperText={errors.userName?.message}
+        placeholder="User's email"
+        error={Boolean(errors.email)}
+        helperText={errors.email?.message}
       />
       <Field
-        name="password"
+        name="pass"
         register={register}
         autoComplete="off"
-        placeholder="Пароль"
-        error={Boolean(errors.password)}
-        helperText={errors.password?.message}
+        placeholder="Password"
+        error={Boolean(errors.pass)}
+        helperText={errors.pass?.message}
       />
       <Button disabled={isSubmitting} type="submit">
-        Войти
+        Log In
       </Button>
     </form>
   );

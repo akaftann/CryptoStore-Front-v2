@@ -10,10 +10,10 @@ export default function Demo() {
     <div className={style.wrapper}>
       <p>{JSON.stringify(data)}</p>
       <Button onClick={handleFetchProtected}>
-        Запрос на защищенный роут
+        Buy USDt
       </Button>
       <Button onClick={handleLogOut}>
-        Выйти
+        Log out
       </Button>
     </div>
   );
